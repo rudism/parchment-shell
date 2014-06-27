@@ -15,7 +15,7 @@
       <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
     </div>
     <ul>
-      <li class="game-item" id="gtemplate">
+      <li id="gtemplate">
         <a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
         <a class="game" href="#"><i class="fa fa-circle-o"></i> <span class="name"></span></a>
       </li>
@@ -32,12 +32,20 @@
       <label for="game-url">Game file URL:</label>
       <input name="game-url" />
     </div>
+    <div class="row">
+      <label for="game-type">Type:</label>
+      <select name="game-type">
+        <option value="auto">Detect Automatically</option>
+        <option value="parchment">Z-Code/Glulx</option>
+        <option value="tads">TADS v3</option>
+      </select>
+    </div>
   </div>
   <div id="confirm">
   </div>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-<script src="pshell.min.js"></script>
+<script src="pshell.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ module.exports = (grunt) ->
       compile:
         options:
           join: true
+          bare: true
         files: [
           'bin/pshell.js': ['src/**/*.coffee']
         ]
