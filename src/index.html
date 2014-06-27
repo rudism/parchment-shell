@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ifShell</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,300">
+  <link rel="stylesheet" href="pshell.css">
+</head>
+<body>
+  <div id="gamelist">
+    <div class="controls">
+      <a href="#" data-action="add" class="button add"><i class="fa fa-plus-circle"></i> Add Game</a>
+      <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
+    </div>
+    <ul>
+      <li class="game-item" id="gtemplate">
+        <a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
+        <a class="game" href="#"><i class="fa fa-circle-o"></i> <span class="name"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div id="playfield">
+  </div>
+  <div id="gameprompt">
+    <div class="row">
+      <label for="game-name">Name:</label>
+      <input name="game-name" />
+    </div>
+    <div class="row">
+      <label for="game-url">Game file URL:</label>
+      <input name="game-url" />
+    </div>
+  </div>
+  <div id="confirm">
+  </div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="pshell.min.js"></script>
+</body>
+</html>

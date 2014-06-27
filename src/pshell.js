@@ -1,63 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Parchment</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,300">
-  <style>
-    html, body, div, ul, li, label, input, iframe { margin: 0; padding: 0; }
-    html, body { font-family: 'Lato', sans-serif; overflow: hidden; }
-    #gameprompt { display: none; }
-    #gameprompt .row { margin-bottom: 10px; }
-    #gameprompt label { display: inline-block; width: 140px; text-align: right; }
-    #gameprompt input { width: 350px; }
-    a { text-decoration: none; outline: 0; }
-    .controls { overflow: auto; font-size: 66%; }
-    a.button { border-right: 1px solid #ccc; display: block; float: left; padding: 3px 6px; }
-    a.button.add { color: #090; }
-    a.button.clear { color: #900; }
-    a.button.add:hover { color: #fff; background-color: #090; }
-    a.button.clear:hover { color: #fff; background-color: #900; }
-    .controls { border-bottom: 1px solid #ccc; }
-    #gamelist { position: absolute; top: 0; left: 0; bottom: 0; width: 249px; border-right: 1px solid #ccc; }
-    #playfield { position: absolute; top: 0; left: 250px; right: 0; bottom: 0; }
-    #playfield iframe { width: 100%; height: 100%; border: none; }
-    .game-item { border-bottom: 1px solid #ccc; padding: 5px 10px }
-    .game-item a { text-decoration: none; }
-    .game-item:hover { background-color: #eef; }
-    a.game { display: block; font-weight: 300; font-size: 133%; }
-    a.remove { float: right; color: #900; margin-top: 2px; }
-    a.remove:hover { color: #f00; }
-  </style>
-</head>
-<body>
-  <div id="gamelist">
-    <div class="controls">
-      <a href="#" data-action="add" class="button add"><i class="fa fa-plus-circle"></i> Add Game</a>
-      <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
-    </div>
-    <ul></ul>
-  </div>
-  <div id="playfield">
-  </div>
-  <div id="gameprompt">
-    <div class="row">
-      <label for="game-name">Name:</label>
-      <input name="game-name" />
-    </div>
-    <div class="row">
-      <label for="game-url">Game file URL:</label>
-      <input name="game-url" />
-    </div>
-  </div>
-  <div id="confirm">
-  </div>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-<script>
 $(document).ready(function(){
   $('.button').each(function(){
     switch($(this).attr('data-action')){
@@ -195,6 +135,3 @@ function updateList(){
   });
   setActiveIndicator();
 }
-</script>
-</body>
-</html>
