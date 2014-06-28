@@ -15,30 +15,35 @@
       <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
     </div>
     <ul>
-      <li id="gtemplate">
+      <li id="gtemplate" class="template">
         <a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
-        <a class="game" href="#"><i class="fa fa-circle-o"></i> <span class="name"></span></a>
+        <a class="game" href="#"><i class="indicator fa fa-circle-o"></i> <span class="name"></span></a>
       </li>
     </ul>
   </div>
   <div id="playfield">
   </div>
-  <div id="gameprompt">
+  <div class="prompt" id="ifdbprompt">
+    <div class="row">
+      <label for="search">Find Game:</label>
+      <input type="text" name="game-search" />
+    </div>
+    <div class="results">
+      <div id="ifdbtemplate" class="template">
+        <a class="ifdb" href="" target="_blank" title="View on IFDB"><i class="fa fa-info-circle"></i></a>
+        <a href="#" class="name"></a>
+        <span class="author"></span>
+      </div>
+    </div>
+  </div>
+  <div class="prompt" id="gameprompt">
     <div class="row">
       <label for="game-name">Name:</label>
-      <input name="game-name" />
+      <input type="text" name="game-name" />
     </div>
     <div class="row">
       <label for="game-url">Game file URL:</label>
-      <input name="game-url" />
-    </div>
-    <div class="row">
-      <label for="game-type">Type:</label>
-      <select name="game-type">
-        <option value="auto">Detect Automatically</option>
-        <option value="parchment">Z-Code/Glulx</option>
-        <option value="tads">TADS v3</option>
-      </select>
+      <input type="text" name="game-url" />
     </div>
   </div>
   <div id="confirm">
