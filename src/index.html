@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ifShell</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,300">
+  <link rel="stylesheet" href="pshell.css">
+</head>
+<body>
+  <div id="gamelist">
+    <div class="controls">
+      <a href="#" data-action="add" class="button add"><i class="fa fa-plus-circle"></i> Add Game</a>
+      <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
+    </div>
+    <ul>
+      <li id="gtemplate" class="template">
+        <a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
+        <a class="game" href="#"><i class="indicator fa fa-circle-o"></i> <span class="name"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div id="playfield">
+  </div>
+  <div class="prompt" id="ifdbprompt">
+    <div class="row">
+      <label for="search">Find Game:</label>
+      <input type="text" name="game-search" />
+    </div>
+    <div class="results">
+      <div id="ifdbtemplate" class="template">
+        <a class="ifdb" href="" target="_blank" title="View on IFDB"><i class="fa fa-info-circle"></i></a>
+        <a href="#" class="name"></a>
+        <span class="author"></span>
+      </div>
+    </div>
+  </div>
+  <div class="prompt" id="gameprompt">
+    <div class="row">
+      <label for="game-name">Name:</label>
+      <input type="text" name="game-name" />
+    </div>
+    <div class="row">
+      <label for="game-url">Game file URL:</label>
+      <input type="text" name="game-url" />
+    </div>
+  </div>
+  <div id="confirm">
+  </div>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="pshell.js"></script>
+</body>
+</html>
