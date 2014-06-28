@@ -63,7 +63,8 @@ loadState = ->
     else
       game = addGameFromIfdb ifdb[0]
       if game != null
-        toggleGameList true
+        if getQueryParam('list') != '1'
+          toggleGameList true
         loadGame game
         bypassSaved = true
       else

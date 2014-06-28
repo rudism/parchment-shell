@@ -5,7 +5,7 @@ $redColor = #900
 $greenColor = #090
 $whiteColor = #fff
 
-html, body, div, ul, li, label, input, iframe
+html, body, div, ul, li, label, input, iframe, p
   margin 0
   padding 0
   background-color $whiteColor
@@ -14,7 +14,7 @@ html, body
   font-family 'Lato', sans-serif
   overflow hidden
 
-.prompt, .template, #expand
+.prompt, .template, #expand, .no-games
   display none
 
 .prompt
@@ -43,16 +43,13 @@ html, body
     color $blackColor
     &:hover
       color lighten($blackColor, 25%)
-
-a
-  text-decoration none
-  outline 0
-  color $linkColor
-  &.button
+  a.button
     border-right 1px solid $borderColor
     display block
     float left
     padding 3px 6px
+    &:hover
+      text-decoration none
     &.add
       color $greenColor
       &:hover
@@ -63,6 +60,13 @@ a
       &:hover
         color $whiteColor
         background-color $redColor
+
+a
+  text-decoration none
+  outline 0
+  color $linkColor
+  &:hover
+    text-decoration underline
 
 #expand
   position absolute
@@ -153,3 +157,15 @@ a.about
         color $blackColor
         &:hover
           color $linkColor
+
+#nogamesmsg
+  border 1px dashed $borderColor
+  margin 40px 50px
+  padding 40px 50px
+  font-family 'Lato', sans-serif
+  font-weight 300
+  font-size 133%
+  p
+    margin-bottom 1.33em
+    &:last-child
+      margin-bottom 0

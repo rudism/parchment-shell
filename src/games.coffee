@@ -105,6 +105,11 @@ loadGames = ->
 
 # saves to localstorage here and updates the game list in the sidebar
 updateGameList = ->
+  if games.length == 0
+    $('.no-games').show()
+  else
+    $('.no-games').hide()
+
   localStorage.setItem 'games-v2', JSON.stringify _.map games, 'game'
   $container = $('#gamelist ul')
   $('.game-item').remove()
