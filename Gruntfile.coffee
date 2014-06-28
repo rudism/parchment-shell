@@ -12,6 +12,14 @@ module.exports = (grunt) ->
           'bin/pshell.js': ['src/**/*.coffee']
         ]
 
+    stylus:
+      compile:
+        options:
+          compress: true
+        files: [
+          'bin/pshell.css': ['src/**/*.styl']
+        ]
+
     uglify:
       js:
         files:
@@ -24,7 +32,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           flatten: true
-          src: ['src/**/*.css', 'src/**/*.html']
+          src: ['src/**/*.html']
           dest: 'bin/'
         ]
 
@@ -32,8 +40,11 @@ module.exports = (grunt) ->
       js:
         files: ['src/**/*.coffee']
         tasks: ['build:js']
+      css:
+        files: ['src/**/*.styl']
+        tasks: ['stylus:compile']
       static:
-        files: ['src/**/*.html', 'src/**/*.css']
+        files: ['src/**/*.html']
         tasks: ['copy:static']
 
   for name of pkg.devDependencies when name.substring(0, 6) is 'grunt-'
@@ -47,5 +58,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'coffee:compile'
     'uglify:js'
+    'stylus:compile'
     'copy:static'
   ]

@@ -13,8 +13,9 @@ generateUuid = ->
 # generates the new internal rep of a game from the name, url, and type
 # guesses type based on file extension if type is 'auto'
 # this is useless for now since the TADS web terp can't load arbitrary .t3 files anyway
-newGame = (name, url, type) ->
-  id = generateUuid()
+newGame = (name, url, type, ifdb, isNew, id) ->
+  if !id?
+    id = generateUuid()
 
   if type == 'auto'
     ext = url.toLowerCase().substring url.lastIndexOf('.') + 1, url.length
@@ -35,7 +36,10 @@ newGame = (name, url, type) ->
     meta:
       element: $elem
       frame: $frame
+      new: if isNew? then isNew else false
     game:
+      id: id
+      ifdb: ifdb
       name: name
       url: url
       type: gtype
@@ -62,6 +66,9 @@ wireGame = (game) ->
 # brings the appropriate frame forward for parchment games
 # TADS terp doesn't work in an iframe so we just pop those in a new window
 loadGame = (game) ->
+  game.meta.new = false
+  game.meta.element.removeClass 'new'
+
   switch game.game.type
     when 'parchment'
       for g in games
@@ -75,6 +82,7 @@ loadGame = (game) ->
     when 'tads'
       onConfirm "#{game.game.name} can only be played in a new window. Open one now?", ->
         window.open game.game.url, '_blank'
+  saveState()
 
 removeGame = (game) ->
   game.meta.element.remove()
@@ -85,11 +93,24 @@ removeGame = (game) ->
 removeAllGames = ->
   removeGame game for game in _.clone games
 
+loadGames = ->
+  gamesJson = localStorage.getItem 'games-v2'
+  if gamesJson?
+    gameData = JSON.parse gamesJson
+    if !gameData? or !(gameData instanceof Array)
+      games = []
+    else
+      for game in gameData
+        games.push newGame game.name, game.url, game.type, game.ifdb, false, game.id
+
 # saves to localstorage here and updates the game list in the sidebar
 updateGameList = ->
-  localStorage.setItem 'games', JSON.stringify _.map games, 'game'
+  localStorage.setItem 'games-v2', JSON.stringify _.map games, 'game'
   $container = $('#gamelist ul')
   $('.game-item').remove()
   for game in (_.sortBy games, (g) -> g.game.name)
+    if game.meta.new
+      game.meta.element.addClass 'new'
     $container.append game.meta.element
     wireGame game
+  saveState()

@@ -17,6 +17,34 @@ onConfirm = (prompt, callback) ->
         $('#confirm').dialog 'close'
     ]
 
+# generic dialog for alerts
+showAlert = (title, message, button) ->
+  $('#confirm').empty().html(message).dialog
+    modal: true
+    draggable: false
+    resizable: false
+    title: title
+    width: 400
+    buttons: [
+      text: button
+      click: ->
+        $('#confirm').dialog 'close'
+    ]
+
+# shows the about dialog
+showAboutDialog = ->
+  $('#aboutprompt').dialog
+    modal: true
+    resizable: false
+    draggable: false
+    title: 'ifShell r2014-06-28'
+    width: 400
+    buttons: [
+      text: 'OK'
+      click: ->
+        $('#aboutprompt').dialog 'close'
+    ]
+
 # shows the dialog for searching the IFDB index
 showFindGameDialog = ->
   $("#ifdbprompt input[name='game-search']").val ''
@@ -32,12 +60,10 @@ showFindGameDialog = ->
       click: ->
         $('#ifdbprompt').dialog 'close'
         showAddGameDialog()
-        return false
     ,
       text: 'Cancel'
       click: ->
         $('#ifdbprompt').dialog 'close'
-        return false
     ]
 
 # shows the dialog for manual Parchment game entry

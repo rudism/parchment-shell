@@ -3,7 +3,7 @@ ifdbAddResult = (id) ->
   result = ifdbGames[id]
   $temp = $('#ifdbtemplate').clone().removeAttr('id').removeClass('template').addClass 'result'
   $temp.find('a.name').html(result.name).click ->
-    games.push newGame result.name, result.url, result.type
+    games.push newGame result.name, result.url, result.type, id, true
     $('#ifdbprompt').dialog 'close'
     updateGameList()
     return false

@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="pshell.css">
 </head>
 <body>
+  <div id="expand"></div>
   <div id="gamelist">
+    <div class="splitbar"></div>
     <div class="controls">
+      <a href="#" id="collapse"><i class="fa fa-arrow-left">&nbsp;</i></a>
       <a href="#" data-action="add" class="button add"><i class="fa fa-plus-circle"></i> Add Game</a>
       <a href="#" data-action="clear" class="button clear"><i class="fa fa-ban"></i> Clear Games</a>
     </div>
@@ -21,6 +24,10 @@
       </li>
     </ul>
   </div>
+  <a class="about button" data-action="about" href="#">
+    <i class="fa fa-question-circle"></i>
+    About ifShell
+  </a>
   <div id="playfield">
   </div>
   <div class="prompt" id="ifdbprompt">
@@ -47,6 +54,9 @@
     </div>
   </div>
   <div id="confirm">
+  </div>
+  <div class="prompt" id="aboutprompt">
+    ifShell is a game management shell for <a target="_blank" href="https://github.com/curiousdannii/parchment">Parchment</a> and <a target="_blank" href="http://tads.org">TADS</a>. Game listings are obtained from the <a target="_blank" href="http://ifdb.tads.org">IFDB</a>. The source code is available on <a target="_blank" href="https://github.com/rudism/parchment-shell">Github</a>, where the author may also be reached.
   </div>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>

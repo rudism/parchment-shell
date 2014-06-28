@@ -1,0 +1,155 @@
+$borderColor = #ccc
+$blackColor = #444
+$linkColor = #0073ea
+$redColor = #900
+$greenColor = #090
+$whiteColor = #fff
+
+html, body, div, ul, li, label, input, iframe
+  margin 0
+  padding 0
+  background-color $whiteColor
+
+html, body
+  font-family 'Lato', sans-serif
+  overflow hidden
+
+.prompt, .template, #expand
+  display none
+
+.prompt
+  .row
+    margin-bottom 10px
+  label
+    display inline-block
+    width 140px
+    text-align right
+  input
+    width 350px
+  a
+    color $linkColor
+    text-decoration none
+    &:hover
+      text-decoration underline
+
+.controls
+  overflow auto
+  font-size 66%
+  border-bottom 1px solid $borderColor
+  #collapse
+    font-size 125%
+    float right
+    margin-right 5px
+    color $blackColor
+    &:hover
+      color lighten($blackColor, 25%)
+
+a
+  text-decoration none
+  outline 0
+  color $linkColor
+  &.button
+    border-right 1px solid $borderColor
+    display block
+    float left
+    padding 3px 6px
+    &.add
+      color $greenColor
+      &:hover
+        color $whiteColor
+        background-color $greenColor
+    &.clear
+      color $redColor
+      &:hover
+        color $whiteColor
+        background-color $redColor
+
+#expand
+  position absolute
+  left 0
+  top 0
+  bottom 0
+  width 10px
+  background-color $borderColor
+  cursor pointer
+  &:hover
+    background-color darken($borderColor, 25%)
+
+a.about
+  position absolute
+  right 20px
+  border 0
+  bottom 0
+  background-color $whiteColor
+  padding 3px 6px
+  z-index 100
+  font-size 66%
+  &:hover
+    text-decoration underline
+
+#gamelist
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  width 244px
+  border-right 1px solid $borderColor
+  .game-item
+    border-bottom 1px solid $borderColor
+    padding 5px 10px
+    &:hover
+      background-color lighten($linkColor, 85%)
+    &.new
+      background-color lighten($greenColor, 95%)
+      &:hover
+        background-color lighten($greenColor, 85%)
+    a
+      text-decoration none
+      .fa
+        color $blackColor
+      &.game
+        display block
+        font-weight 300
+        font-size 133%
+      &.remove
+        float right
+        margin-top 2px
+        .fa
+          color $redColor
+          margin-left 5px
+          &:hover
+            color lighten($redColor, 25%)
+  .splitbar
+    position absolute
+    top 0
+    left 244px
+    bottom 0
+    width 6px
+    background-color $borderColor
+    cursor col-resize
+    &:hover
+      background-color darken($borderColor, 25%)
+
+#playfield
+  position absolute
+  top 0
+  left 250px
+  right 0
+  bottom 0
+  iframe
+    width 100%
+    height 100%
+    border none
+
+#ifdbprompt
+  .results
+    min-height 110px
+    a
+      text-decoration none
+      color $linkColor
+      &:hover
+        text-decoration underline
+      &.ifdb
+        color $blackColor
+        &:hover
+          color $linkColor
